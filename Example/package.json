@@ -15,7 +15,8 @@
     "react-dom": "^16.13.0",
     "react-native": "0.61.5",
     "react-native-web": "^0.12.2",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "destiny": "file:../lib"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
