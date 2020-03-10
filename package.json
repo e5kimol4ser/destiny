@@ -32,6 +32,10 @@
   "files": [
     "lib/**/*"
   ],
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-native": ">=0.61.5"
+  },
   "prettier": {
     "printWidth": 120,
     "bracketSpacing": false,
