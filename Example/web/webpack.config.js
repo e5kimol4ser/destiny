@@ -32,14 +32,13 @@ const babelLoaderConfiguration = {
   include: [
     path.resolve(appDirectory, 'index.web.js'),
     path.resolve(appDirectory, 'src'),
-    //path.resolve(appDirectory, 'node_modules/react-native-uncompiled'),
+    path.resolve(appDirectory, 'node_modules/destiny'),
   ],
   use: {
     loader: 'babel-loader',
     options: {
       cacheDirectory: true,
-      // The 'react-native' preset is recommended to match React Native's packager
-      presets: ['react-native'],
+      presets: ['module:metro-react-native-babel-preset'],
       // Re-write paths to import only the modules needed by the app
       plugins: ['react-native-web'],
     },
@@ -75,7 +74,7 @@ module.exports = {
   devtool: 'source-map',
 
   module: {
-    rules: [typescriptLoaderConfiguration, sourceMapConfiguration, babelLoaderConfiguration, imageLoaderConfiguration],
+    rules: [typescriptLoaderConfiguration, babelLoaderConfiguration, imageLoaderConfiguration],
   },
 
   plugins: [

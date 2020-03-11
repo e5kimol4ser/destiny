@@ -22,18 +22,23 @@
   ],
   "author": "Karim Issa",
   "license": "MIT",
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-native": "^0.61.20"
+  },
   "devDependencies": {
     "prettier": "^1.19.1",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
   },
-  "files": [
-    "lib/**/*"
-  ],
   "peerDependencies": {
     "react": ">=16.9.0",
-    "react-native": ">=0.61.5"
+    "react-native": ">=0.61.5",
+    "react-native-dark-mode": ">=0.2.1"
   },
   "prettier": {
     "printWidth": 120,

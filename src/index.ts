@@ -1,1 +1,1 @@
-export const Test = (name: string) => `Hi ${name}`;
+export {DarkMode} from './packages/theme/DarkMode'
