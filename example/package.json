@@ -6,7 +6,7 @@
     "metro": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "web": "cd web && webpack-dev-server",
+    "web": "cd web && webpack-dev-server --host 0.0.0.0",
     "build:web": "cd web && webpack",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
@@ -16,6 +16,7 @@
     "react-dom": "^16.13.0",
     "react-native": "0.61.5",
     "react-native-dark-mode": "^0.2.2",
+    "react-native-safe-area-context": "^0.7.3",
     "react-native-web": "^0.12.2",
     "resize-observer-polyfill": "^1.5.1"
   },
