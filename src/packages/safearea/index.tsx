@@ -1,10 +1,5 @@
 import * as React from 'react'
-import {
-  SafeAreaProvider,
-  SafeAreaConsumer,
-  initialWindowSafeAreaInsets,
-  EdgeInsets,
-} from 'react-native-safe-area-context'
+import {SafeAreaProvider, SafeAreaConsumer, EdgeInsets} from 'react-native-safe-area-context'
 
 interface Props {
   children?: React.ReactNode
@@ -28,6 +23,6 @@ export class SafeArea extends React.Component<Props, State> {
   static Consumer = ConsumerNotNull
 
   render() {
-    return <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets} {...this.props} />
+    return <SafeAreaProvider {...this.props} />
   }
 }
