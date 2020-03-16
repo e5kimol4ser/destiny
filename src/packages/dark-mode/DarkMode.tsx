@@ -1,21 +1,10 @@
 import * as React from 'react'
 import {initialMode, eventEmitter, supportsDarkMode} from 'react-native-dark-mode'
+import {Mode, State, Props} from './types'
 
-type Mode = 'noPreference' | 'light' | 'dark'
+const Context = React.createContext<State>({mode: 'noPreference'})
 
-interface Props {
-  children?: React.ReactNode
-}
-
-interface State {
-  mode: Mode
-}
-
-const {Provider, Consumer} = React.createContext<State>({mode: 'noPreference'})
-
-export class DarkMode extends React.PureComponent<Props, State> {
-  static Consumer: React.Consumer<State> = Consumer
-
+export class Provider extends React.PureComponent<Props, State> {
   constructor(props: Readonly<Props>) {
     super(props)
 
@@ -43,6 +32,8 @@ export class DarkMode extends React.PureComponent<Props, State> {
   }
 
   render() {
-    return <Provider value={this.state} {...this.props} />
+    return <Context.Provider value={this.state} {...this.props} />
   }
 }
+
+export const Consumer: React.Consumer<State> = Context.Consumer

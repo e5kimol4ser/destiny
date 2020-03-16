@@ -1,6 +1,14 @@
 import React from 'react'
 import {StyleSheet, Text, View, Button} from 'react-native'
-import {SafeArea} from 'destiny'
+import {Theme} from 'destiny'
+
+const defaultTheme = {
+  primary: '',
+  secondary: '',
+  tertiary: '',
+}
+
+const {Provider, Consumer} = Theme.ThemeFactory({light: defaultTheme, dark: defaultTheme, noPreference: defaultTheme})
 
 export default class App extends React.Component<{}, {mounted: Boolean}> {
   constructor(props: {}) {
@@ -14,13 +22,6 @@ export default class App extends React.Component<{}, {mounted: Boolean}> {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.mounted && (
-          <SafeArea>
-            <SafeArea.Consumer>
-              {insets => <View style={{position: 'absolute', ...insets, backgroundColor: 'yellow'}}></View>}
-            </SafeArea.Consumer>
-          </SafeArea>
-        )}
         <View style={{position: 'absolute', top: 40, bottom: 40, left: 40, right: 40}}>
           <Button title={'Toggle'} onPress={() => this.setState({mounted: !this.state.mounted})} />
         </View>

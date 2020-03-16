@@ -1,9 +1,4 @@
-import React from 'react'
+import {ThemeFactory} from './ThemeFactory'
+import {BaseTheme, Context, State, Props} from './types'
 
-export interface BaseTheme {
-  primary: string
-  secondary: string
-  tertiary: string
-}
-
-export class Theme extends React.Component {}
+export {ThemeFactory, BaseTheme, Context, State, Props}
