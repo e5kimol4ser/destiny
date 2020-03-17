@@ -13,6 +13,7 @@
       "react": ["example/node_modules/react"],
       "react-native": ["example/node_modules/react-native"],
       "react-native-dark-mode": ["example/node_modules/react-native-dark-mode"],
+      "react-native-localize": ["example/node_modules/react-native-localize"],
       "react-native-safe-area-context": ["example/node_modules/react-native-safe-area-context"]
     }
   },

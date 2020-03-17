@@ -1,14 +1,8 @@
 import React from 'react'
 import {StyleSheet, Text, View, Button} from 'react-native'
-import {Theme} from 'destiny'
+import {Localization} from 'destiny'
 
-const defaultTheme = {
-  primary: '',
-  secondary: '',
-  tertiary: '',
-}
-
-const {Provider, Consumer} = Theme.ThemeFactory({light: defaultTheme, dark: defaultTheme, noPreference: defaultTheme})
+const {Provider} = Localization.LocalizationFactory({'de-DE': {}}, {languageTag: 'de_DE', isRTL: false})
 
 export default class App extends React.Component<{}, {mounted: Boolean}> {
   constructor(props: {}) {
