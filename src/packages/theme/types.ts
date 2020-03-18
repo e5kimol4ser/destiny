@@ -6,13 +6,14 @@ export interface BaseTheme {
   tertiary: string
 }
 
-export interface Props {
+export interface Props<T extends BaseTheme> {
   children?: React.ReactNode
+  initialTheme: State<T>
 }
 
-export type State<T> = Record<DarkMode.Mode, T>
+export type State<T extends BaseTheme> = Record<DarkMode.Mode, T>
 
-export interface Context<T> {
+export interface Context<T extends BaseTheme> {
   theme: T
   setTheme: (theme: State<T>) => void
 }

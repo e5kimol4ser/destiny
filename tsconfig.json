@@ -9,6 +9,7 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
       "react": ["example/node_modules/react"],
       "react-native": ["example/node_modules/react-native"],

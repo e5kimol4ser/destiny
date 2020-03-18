@@ -1,4 +1,4 @@
-import {LocalizationFactory} from './LocalizationFactory'
-import {Props, State, Translations, Context, Calendar, TemperatureUnit} from './types'
+import {Provider, Consumer} from './LocalizationContext'
+import {Props, State, Translations, Context, Calendar, TemperatureUnit, Language} from './types'
 
-export {LocalizationFactory, Props, State, Translations, Context, Calendar, TemperatureUnit}
+export {Provider, Consumer, Props, State, Translations, Context, Calendar, TemperatureUnit, Language}

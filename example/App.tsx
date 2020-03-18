@@ -17,7 +17,10 @@ export default class App extends React.Component<{}, {mounted: Boolean}> {
     return (
       <View style={styles.container}>
         <View style={{position: 'absolute', top: 40, bottom: 40, left: 40, right: 40}}>
-          <Button title={'Toggle'} onPress={() => this.setState({mounted: !this.state.mounted})} />
+          <Button
+            title={this.state.mounted ? 'Mounted' : 'Unmounted'}
+            onPress={() => this.setState(({mounted}) => ({mounted: !mounted}))}
+          />
         </View>
       </View>
     )

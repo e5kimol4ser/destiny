@@ -1,7 +1,9 @@
 import {Calendar, TemperatureUnit} from 'react-native-localize'
 
-export interface Props {
+export interface Props<T> {
   children?: React.ReactNode
+  translations: Translations<T>
+  defaultLanguage: Language
 }
 
 export interface State {
@@ -12,6 +14,11 @@ export interface State {
   temperatureUnit: TemperatureUnit
   usesMetricSystem: boolean
   calendar: Calendar
+  isRTL: boolean
+}
+
+export interface Language {
+  languageTag: L
   isRTL: boolean
 }
 

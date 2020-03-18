@@ -1,4 +1,4 @@
-import {ThemeFactory} from './ThemeFactory'
+import {Provider, Consumer} from './ThemeContext'
 import {BaseTheme, Context, State, Props} from './types'
 
-export {ThemeFactory, BaseTheme, Context, State, Props}
+export {Provider, Consumer, BaseTheme, Context, State, Props}
