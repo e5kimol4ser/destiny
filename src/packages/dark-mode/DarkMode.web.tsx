@@ -11,12 +11,13 @@ interface MediaQueryListener {
   listener: ({matches}: {matches: boolean}) => any
 }
 
-const modes: MediaQueryMode[] = [
+const modes: MediaQueryMode[] | undefined = window && [
   {mode: 'light', mediaQuery: window.matchMedia('(prefers-color-scheme: light)')},
   {mode: 'dark', mediaQuery: window.matchMedia('(prefers-color-scheme: dark)')},
   {mode: 'noPreference', mediaQuery: window.matchMedia('(prefers-color-scheme: no-preference)')},
 ]
-const initialMode = modes.find(({mediaQuery}) => mediaQuery.matches)?.mode
+
+const initialMode = modes && modes.find(({mediaQuery}) => mediaQuery.matches)?.mode
 const supportsDarkMode = !!initialMode
 
 const Context = React.createContext<State>({mode: 'noPreference'})
@@ -37,7 +38,7 @@ export class Provider extends React.PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    if (supportsDarkMode) {
+    if (supportsDarkMode && modes) {
       modes.forEach(({mode, mediaQuery}) => {
         const listener = ({matches}: {matches: boolean}) => {
           if (matches) {
