@@ -1,13 +1,10 @@
 {
+  "extends": "typescript-preset",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
     "jsx": "react-native",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true,
     "baseUrl": ".",
-    "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {

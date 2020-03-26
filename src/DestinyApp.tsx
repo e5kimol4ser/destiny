@@ -9,9 +9,7 @@ type Props<L, T extends BaseTheme> = LocalizationProps<L> &
     children?: React.ReactNode
   }
 
-interface State {}
-
-export class DestinyApp<L, T extends BaseTheme> extends React.Component<Props<L, T>, State> {
+export class DestinyApp<L, T extends BaseTheme> extends React.Component<Props<L, T>, {}> {
   render() {
     const {translations, defaultLanguage, initialTheme, children} = this.props
 

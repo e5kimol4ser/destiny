@@ -10,7 +10,7 @@ export interface State {
   languageTag: string
   decimalSeparator: string
   groupingSeparator: string
-  currencies: Array<string>
+  currencies: string[]
   temperatureUnit: TemperatureUnit
   usesMetricSystem: boolean
   calendar: Calendar

@@ -280,6 +280,11 @@ tsutils@^2.29.0:
   dependencies:
     tslib "^1.8.1"
 
+typescript-preset@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/typescript-preset/-/typescript-preset-1.0.0.tgz#0f9166162cf12eccb04ec288d0309a1d2a6a4cca"
+  integrity sha512-k61I6B3+P7kVuQAk41yJeRlTBWmE8VCwWmiiDaUfEvGbyW8I1Gz2lAgxPoXPHqmC9iAc7NHfkcU2zFeawbTaMw==
+
 typescript@^3.8.3:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"

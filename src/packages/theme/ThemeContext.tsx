@@ -3,7 +3,7 @@ import * as DarkMode from '../dark-mode'
 import {BaseTheme, Context, State, Props} from './types'
 import defaultTheme from './default.json'
 
-const Context = React.createContext<Context<any>>({theme: defaultTheme.noPreference, setTheme: () => {}})
+const Context = React.createContext<Context<any>>({theme: defaultTheme.noPreference, setTheme: () => undefined})
 
 export class Provider<T extends BaseTheme> extends React.Component<Props<T>, State<T>> {
   constructor(props: Props<T>) {
