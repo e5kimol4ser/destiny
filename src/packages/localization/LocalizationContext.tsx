@@ -4,15 +4,27 @@ import {Props, State, Context, Language} from './types'
 
 const getLocalization: (availableLanguages: string[], defaultLanguage: Language) => State = (
   availableLanguages,
-  defaultLanguage,
-) => ({
-  ...RNLocalize.getNumberFormatSettings(),
-  ...(RNLocalize.findBestAvailableLanguage(availableLanguages) ?? defaultLanguage),
-  currencies: RNLocalize.getCurrencies(),
-  temperatureUnit: RNLocalize.getTemperatureUnit(),
-  usesMetricSystem: RNLocalize.usesMetricSystem(),
-  calendar: RNLocalize.getCalendar(),
-})
+  defaultLanguage
+) =>
+  typeof navigator !== 'undefined'
+    ? {
+        ...RNLocalize.getNumberFormatSettings(),
+        ...(RNLocalize.findBestAvailableLanguage(availableLanguages) ?? defaultLanguage),
+        currencies: RNLocalize.getCurrencies(),
+        temperatureUnit: RNLocalize.getTemperatureUnit(),
+        usesMetricSystem: RNLocalize.usesMetricSystem(),
+        calendar: RNLocalize.getCalendar(),
+      }
+    : {
+        languageTag: defaultLanguage.languageTag,
+        decimalSeparator: ',',
+        groupingSeparator: '.',
+        currencies: ['USD'],
+        temperatureUnit: 'fahrenheit',
+        usesMetricSystem: true,
+        calendar: 'gregorian',
+        isRTL: defaultLanguage.isRTL,
+      }
 
 const LanguageContext = React.createContext<Context<any>>({
   settings: getLocalization([], {languageTag: 'en-US', isRTL: false}),

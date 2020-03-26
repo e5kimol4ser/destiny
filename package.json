@@ -1,11 +1,11 @@
 {
   "name": "react-destiny",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A react-native-web framework for simple cross-platform app development.",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf lib/ && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
