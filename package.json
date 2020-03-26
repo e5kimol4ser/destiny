@@ -1,6 +1,6 @@
 {
   "name": "destiny",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A react-native-web framework for simple cross-platform app development.",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
