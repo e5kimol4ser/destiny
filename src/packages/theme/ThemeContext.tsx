@@ -22,7 +22,7 @@ export class Provider<T extends BaseTheme> extends React.Component<Props<T>, Sta
     return (
       <DarkMode.Provider>
         <DarkMode.Consumer>
-          {({mode}) => <Context.Provider value={{theme: this.state[mode], setTheme: this.setTheme}} {...this.props} />}
+          {mode => <Context.Provider value={{theme: this.state[mode], setTheme: this.setTheme}} {...this.props} />}
         </DarkMode.Consumer>
       </DarkMode.Provider>
     )

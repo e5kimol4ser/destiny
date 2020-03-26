@@ -18,7 +18,7 @@ export interface State {
 }
 
 export interface Language {
-  languageTag: L
+  languageTag: string
   isRTL: boolean
 }
 

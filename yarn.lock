@@ -210,6 +210,11 @@ path-parse@^1.0.6:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
 
+prettier-preset@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prettier-preset/-/prettier-preset-1.0.1.tgz#5ac63bf8cf2576f3730fc88856e531f53353985f"
+  integrity sha512-m3nySgbVoTe1j5LP40F/a8No1/KvykeG3P4ymf1Ecj9m6eTdqOcYRgaiqk+sUaTTIXbuL9ga10t+jvxKoWniAQ==
+
 prettier@^1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"

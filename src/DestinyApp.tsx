@@ -4,19 +4,22 @@ import {Provider as DarkMode} from './packages/dark-mode'
 import {Provider as SafeArea} from './packages/safe-area'
 import {Provider as Theme, Props as ThemeProps, BaseTheme} from './packages/theme'
 
-type Props<L, T extends BaseTheme> = LocalizationProps<L> & ThemeProps<T>
+type Props<L, T extends BaseTheme> = LocalizationProps<L> &
+  ThemeProps<T> & {
+    children?: React.ReactNode
+  }
 
 interface State {}
 
 export class DestinyApp<L, T extends BaseTheme> extends React.Component<Props<L, T>, State> {
   render() {
-    const {translations, defaultLanguage, initialTheme} = this.props
+    const {translations, defaultLanguage, initialTheme, children} = this.props
 
     return (
       <Localization {...{translations, defaultLanguage}}>
         <SafeArea>
           <DarkMode>
-            <Theme {...{initialTheme}}></Theme>
+            <Theme {...{initialTheme}}>{children}</Theme>
           </DarkMode>
         </SafeArea>
       </Localization>
