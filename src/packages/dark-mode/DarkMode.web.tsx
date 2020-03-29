@@ -1,71 +1,43 @@
 import * as React from 'react'
-import {Mode, State, Props} from './types'
+import {Mode, Props} from './types'
 
 interface MediaQueryMode {
   mode: Mode
   mediaQuery: MediaQueryList
 }
 
-interface MediaQueryListener {
-  mediaQuery: MediaQueryList
-  listener: ({matches}: {matches: boolean}) => any
-}
+const Context = React.createContext<Mode>('noPreference')
 
-const modes: MediaQueryMode[] | false = typeof window !== 'undefined' && [
+const modes: MediaQueryMode[] = [
   {mode: 'light', mediaQuery: window.matchMedia('(prefers-color-scheme: light)')},
   {mode: 'dark', mediaQuery: window.matchMedia('(prefers-color-scheme: dark)')},
   {mode: 'noPreference', mediaQuery: window.matchMedia('(prefers-color-scheme: no-preference)')},
 ]
 
-const initialMode = modes && modes.find(({mediaQuery}) => mediaQuery.matches)?.mode
-const supportsDarkMode = !!initialMode
+const initialMode = modes.find(({mediaQuery}) => mediaQuery.matches)?.mode
 
-const Context = React.createContext<State>({mode: 'noPreference'})
+export const Provider = (props: Props) => {
+  const [mode, setMode] = React.useState<Mode>(initialMode || 'noPreference')
 
-export class Provider extends React.PureComponent<Props, State> {
-  private listeners: MediaQueryListener[]
+  React.useEffect(() => {
+    const removeCallbacks: (() => any)[] = []
 
-  constructor(props: Readonly<Props>) {
-    super(props)
-
-    this.listeners = []
-
-    this.state = {
-      mode: initialMode || 'noPreference',
-    }
-
-    this.onChange = this.onChange.bind(this)
-  }
-
-  componentDidMount() {
-    if (supportsDarkMode && modes) {
-      modes.forEach(({mode, mediaQuery}) => {
-        const listener = ({matches}: {matches: boolean}) => {
-          if (matches) {
-            this.onChange(mode)
-          }
+    modes.forEach(({mode: mediaQueryMode, mediaQuery}) => {
+      const listener = ({matches}: {matches: boolean}) => {
+        if (matches) {
+          setMode(mediaQueryMode)
         }
-        this.listeners.push({mediaQuery, listener})
-        mediaQuery.addListener(listener)
-      })
+      }
+      mediaQuery.addListener(listener)
+      removeCallbacks.push(() => mediaQuery.removeListener(listener))
+    })
+
+    return () => {
+      removeCallbacks.forEach(cb => cb())
     }
-  }
+  })
 
-  componentWillUnmount() {
-    if (supportsDarkMode) {
-      this.listeners.forEach(({mediaQuery, listener}) => {
-        mediaQuery.removeListener(listener)
-      })
-    }
-  }
-
-  onChange(mode: Mode) {
-    this.setState({mode})
-  }
-
-  render() {
-    return <Context.Provider value={this.state} {...this.props} />
-  }
+  return <Context.Provider value={mode} {...props} />
 }
 
-export const Consumer: React.Consumer<State> = Context.Consumer
+export const Consumer: React.Consumer<Mode> = Context.Consumer

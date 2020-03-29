@@ -1,4 +1,4 @@
 import {Provider, Consumer} from './DarkMode'
-import {Mode, State, Props} from './types'
+import {Mode, Props} from './types'
 
-export {Provider, Consumer, Mode, State, Props}
+export {Provider, Consumer, Mode, Props}
